@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<?php
+session_start();
+?>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<title> Libary Management System </title>
+</head>
+
+<script>
+function home()
+{
+	document.getElementById('front').style.display="block";
+	document.getElementById('slideshow').style.display="block";
+	document.getElementById('register_page').style.display="none";
+	document.getElementById('login_page').style.display="none";
+	
+}
+function register_user()
+		{
+			document.getElementById('register_page').style.display="block";
+			document.getElementById('front').style.display="none";
+			document.getElementById('slideshow').style.display="none";
+			document.getElementById('login_page').style.display="none";
+		}
+
+function login_user()
+		{
+			document.getElementById('login_page').style.display="block";
+			document.getElementById('front').style.display="none";
+			document.getElementById('slideshow').style.display="none";
+			document.getElementById('register_page').style.display="none";
+		}
+		
+function show_student()
+{
+			document.getElementById('login_page').style.display="block";
+			document.getElementById('student_login').style.display="block";
+			document.getElementById('faculty_login').style.display="none";
+			document.getElementById('local_login').style.display="none";
+
+}
+
+function show_faculty()
+{
+			document.getElementById('login_page').style.display="block";
+			document.getElementById('student_login').style.display="none";
+			document.getElementById('faculty_login').style.display="block";
+			document.getElementById('local_login').style.display="none";
+
+}
+
+function show_customer()
+{
+			document.getElementById('login_page').style.display="block";
+			document.getElementById('student_login').style.display="none";
+			document.getElementById('faculty_login').style.display="none";
+			document.getElementById('local_login').style.display="block";
+
+}
+
+</script>
+
+<style>
+*{
+	box-sizing: border-box;
+}
+
+body {margin:50;font-family:Georgia}
+
+body {
+  background-color: #d9ddd9;
+}
+
+p, h3, img {
+  margin-left: 15px;
+  margin-right: 30px;
+ }
+
+.gallary {
+	float: left;
+	width: 30%;
+	padding: 8px;
+}
+
+.pictures::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.container a:hover{
+	  background-color: white;
+  color: blue;
+ }
+</style>
+
+<body>
+
+<nav class="navbar navbar-expannd-lg navbar-dark bg-dark">
+<div class="container">
+<img src="images/lms.jpg" style="height:50px">
+   <div><a href="#about" align="right" onclick="home()"> About Us </a></div> 
+    <div><a href="#contact" onclick="home()"> Contact Us </a></div> 
+	<div><a href="book-list-off.php"> Book List </a></div>
+	<div><a href="reserves-off.php"> Reserves </a></div>
+	<div><a href="#" onclick="login_user()"> Login </a></div> 
+	<div><a href="#" onclick="register_user()"> Register</a></div> 
+</div>
+</nav>
+
+
+<img src="images/lms.jpg" align="center" style="width:250px;height:200px">
+<img src="images/csu.png" align="right" style="width:250px;height:200px">
+<h1 id="welcome" style="font-family:Cooper Black" align="center"> Welcome to the Libary Management System! </h1>
+<br> <br>
+
+<div id="slideshow" class="pictures">
+  <div class="gallary">
+      <img src="images/lib3.jpg" alt="Libary1" style="width:100%;">   
+    </div>
+	<div class="gallary">
+	   <img src="images/lib2.jpg" alt="Libary2" style="width:100%;">
+	</div>
+	<div class="gallary">
+		<img src="images/lib1.jpg" alt="Libary3"  style="width:100%;">
+	</div>
+</div>
+
+<br><br>
+<div id="front">
+<p> Here in our libary, we have over a thousand books for every one of your needs. Say you need a textbook
+for that difficult math class. We got it here in the shelves! Need a source that is not available in 
+the bookstore anymore? Come over an talk to one of our experienced librarians to help you find what you are
+looking for from the reference area. We have all the finest works of literature from A to Z. From the oldest
+texts to fresh off the printing press.
+ <br><br>
+ <hr>
+ 
+<h3 id="about"> Who Are We? </h3> 
+<p> For over 85 years, we have been providing service to the students, staff, and neighbours around Casablanca
+University. Our staff has dedicated themselves to providing the most up-to-date books as well as preserving 
+several pieces of literary work for years to come. Our mission is to serve the entire community by allowing 
+customers and the school body to borrow our books for their academic use or just for their enterainment. We 
+expect those who use our properites to treat them with care as we do not hesitate to deal with late or damaged
+goods. As we strive to take care of our literary works, we encourage our school as well as those outside of it
+to do the same. Feel free to learn or just have a space of peace and quiet as we continue to deliver the best values
+in books and update our stock with brand new novels, biography and everything related to literature. We are the
+'brain' of this campus. And we are here to deliver the knowledge needed for you to succeed.
+<br><br>
+<hr>
+<h3 align="center" id="contact"> Contact Us </h3>
+<center>
+PO BOX 97757 <br>
+Casablanca, California 93477 U.S.A. <br>
+Telephone: 474-887-5775 <br>
+Fax: 332-474-8875 <br><br>
+</center>
+</div>
+
+<center>
+<form name='customer-signup' method='post' action="add-customer.php" enctype="multipart/form-data"> 
+<div id="register_page" style="display:none">	
+		
+		<p style="font-size:28px;"> Not a part of the school? Sign up here to borrow books as a regular customer. <br><br>
+		<br> 
+		First & Last Name: <input type="text" name="user_name" /><br><br>
+		
+		Email: <input type="email" name="user_email" /> <br><br>
+		
+		Password: <input type="password" name="user_pass" /> <br><br>
+		
+		Confirm Password: <input type="password" name="user_confirm" /> <br><br>
+		
+		Birthday: <input type="date" name="DOB" /><br><br>
+		
+		Gender: Male <input type="checkbox" name="gender" value="Male"/>  	Female <input type="checkbox" name="gender" value="Female"/> <br><br>
+		
+		I accept the terms and conditions of this website. <input type="checkbox" name="accept"/> <br><br>
+		
+		<button> Sign up </button>
+		<br><br><br>
+		<button> <a href="LMS2.html"> Back to Home</a></button>
+</div>
+</form>
+</center>
+
+<center>
+<div id="login_page" style="display:none">
+	<p style="font-size:28px;"> Welcome Back! <br><br>
+	<center> Are you signing in as a: </center>
+	<button onclick="show_student()"> Student? </button>  <button onclick="show_faculty()"> Faculty Member? </button>   <button onclick="show_customer()"> Local Customer? </button> 
+</div>
+<br><br>
+
+<form method="post" action="confirm.php">
+<div id="student_login" style="display:none">
+	Student Email: <input type="text" name="stu_id" id="user_id"/> <br> <br>
+	Password: <input type="password" name="stu_pass" id="user_pass"/> <br><br>
+	<button> Login </button>
+	<br><br><br>	
+	
+	<button> <a href="LMS2.html"> Back to Home</a></button>
+</div>
+</form>
+
+<form method="post" action="confirm-staff.php">
+<div id="faculty_login" style="display:none">
+	Staff Email: <input type="text" name="staff_id" id="user_id"/> <br> <br>
+	Password: <input type="password" name="staff_password" id="user_pass"/> <br><br>
+	<button> Login </button>
+	<br><br><br>	
+	
+	<button> <a href="LMS2.html"> Back to Home</a></button>
+</div>
+</form>
+
+<form method="post" action="confirm-local.php">
+<div id="local_login" style="display:none">
+	Email: <input type="text" name="customer_id" id="user_id"/> <br> <br>
+	Password: <input type="password" name="customer_pass" id="user_pass"/> <br><br>
+	<button> Login </button>
+	<br><br><br>	
+	
+	<button> <a href="LMS2.html"> Back to Home</a></button>
+</div>
+</form>
+</center>
+
+</body>
+</html>
